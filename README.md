@@ -1,4 +1,4 @@
-# ROS 2 Playgroudn
+# ROS 2 Playground
 
 ## 기본 구성
 
@@ -148,8 +148,8 @@ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 # export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 # export RMW_IMPLEMENTATION=rmw_gurumdds_cpp
 
-# export RCUTILS_CONSOLE_OUTPUT_FORMAT='[{serverity} {time}] [{name}]: {message} ({function_name})() at {filie_name}:{line_number}'
-export RCUTILS_CONSOLE_OUTPUT_FORMAT='[{serverity}]: {message}'
+# export RCUTILS_CONSOLE_OUTPUT_FORMAT='[{severity} {time}] [{name}]: {message} ({function_name})() at {file_name}:{line_number}'
+export RCUTILS_CONSOLE_OUTPUT_FORMAT='[{severity}]: {message}'
 export RCUTILS_COLORIZED_OUTPUT=1
 export RCUTILS_LOGGING_USE_STDOUT=0
 export RCUTILS_LOGGING_BUFFERED_STREAM=0
