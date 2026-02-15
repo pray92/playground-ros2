@@ -12,20 +12,16 @@ brew install --cask xquartz
 ## XQuartz 실행 (최초 1회 설정 필요)
 open -a XQuartz
 
-## 1. 호스트 IP 설정 및 GUI 권한 부여
-IP=$(ifconfig en0 | grep inet | awk '$1=="inet" {print $2}')
-xhost + $IP
-
-## 1-1. 혹은 그냥 전부 활성화
+## 1. GUI 권한 부여
 xhost +
 
 # 2. Docker
 ## ROS2를 위한 Ubuntu 20.04 생성
 ## 패키지 설치 연습 목적으로 우분투에서 부터 시작
+## DISPLAY는 컨테이너 내부 .bashrc에서 host.docker.internal:0 으로 자동 설정됨
 docker run -it \
   --name ros2_foxy_m4 \
   --platform linux/arm64 \
-  -e DISPLAY=$IP:0 \
   -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
   -v ~/.Xauthority:/root/.Xauthority:rw \
   -v $(pwd):/root/ros2_workspace \
@@ -142,6 +138,8 @@ export _colcon_cd_root=~/ros2_workspace
 
 export ROS_DOMAIN_ID=7
 export ROS_NAMESPACE=robot1
+
+export DISPLAY=host.docker.internal:0
 
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 # export RMW_IMPLEMENTATION=rmw_connext_cpp
