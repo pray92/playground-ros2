@@ -327,4 +327,7 @@ sudo apt update && apt install ros-foxy-turtlesim
 # 실행
 ros2 run turtlesim turtlesim_node
 ros2 run turtlesim turtle_teleop_key
+
+# 덤프파일 기반 ros2 실행
+ros2 run turtlesim turtlesim_node --ros-args --params-file ./turtlesim.yaml
 ```
