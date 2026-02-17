@@ -331,3 +331,20 @@ ros2 run turtlesim turtle_teleop_key
 # 덤프파일 기반 ros2 실행
 ros2 run turtlesim turtlesim_node --ros-args --params-file ./turtlesim.yaml
 ```
+
+### 11. RQt (ROS + Qt) 설치
+> 기본 설치에서는 `robot-monitor`나 `robot-steering`, 디버그 심볼 패키지`dbgsym` 미포함되어 있어 설치 필요
+
+```bash
+# RQt 패키지
+sudo apt update && apt install ros-foxy-rqt*
+```
+
+### 12. RQt Image View
+```bash
+# PC 카메라
+ros2 run image_tools cam2image
+
+# 버거 모드 : 움직이는 버거 이미지로 테스트
+ros2 run image_tools cam2image --ros-args -p burger_mode:=true
+```
