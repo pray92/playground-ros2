@@ -1,0 +1,1 @@
+/root/ros2_workspace/build/time_rclcpp_example/ament_cmake_environment_hooks/local_setup.bash

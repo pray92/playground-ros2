@@ -348,3 +348,18 @@ ros2 run image_tools cam2image
 # 버거 모드 : 움직이는 버거 이미지로 테스트
 ros2 run image_tools cam2image --ros-args -p burger_mode:=true
 ```
+
+## Time API 사용
+```bash
+# colcon build
+colcon build --symlink-install 
+
+# 처음에 실행 필수
+source install/setup.bash
+
+# cpp
+ros2 run time_rclcpp_example time_example --ros-args -p use_sim_time:=False
+
+# python
+ros2 run time_rclpy_example time_example --ros-args -p use_sim_time:=False
+```
