@@ -318,3 +318,13 @@ alias testsubimg='ros2 run image_tools showimage'
 ```bash
 apt install qtcreator
 ```
+
+### 10. Turtlesim
+```bash
+# 설치
+sudo apt update && apt install ros-foxy-turtlesim
+
+# 실행
+ros2 run turtlesim turtlesim_node
+ros2 run turtlesim turtle_teleop_key
+```
