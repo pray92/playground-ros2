@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>msg_srv_action_interface_example</name>
+  <version>0.6.0</version>
+  <description>
+    ROS 2 example for message, service and action interface
+  </description>
+  <maintainer email="redgem92@gmail.com">Jisu</maintainer>
+  <license>Apache License 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <!-- 빌드 시 DDS에서 사용되는 IDL 생성 관련 패키지, 인터페이스 전용 패키지 만들 때 필수 의존성 패키지 -->
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+
+  <!-- 실행 시 사용되는 인터페이스 전용 패키지, 인터페이스 전용 패키지 만들 때 필수 의존성 패키지 -->
+  <exec_depend>builtin_interfaces</exec_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

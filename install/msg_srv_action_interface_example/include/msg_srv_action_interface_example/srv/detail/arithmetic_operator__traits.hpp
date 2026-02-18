@@ -1,0 +1,1 @@
+/root/ros2_workspace/build/msg_srv_action_interface_example/rosidl_generator_cpp/msg_srv_action_interface_example/srv/detail/arithmetic_operator__traits.hpp
