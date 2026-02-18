@@ -1,4 +1,4 @@
-# ROS 2 Playground
+# Playground - ROS 2
 
 ## 기본 구성
 
