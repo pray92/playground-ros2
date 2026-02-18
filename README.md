@@ -193,14 +193,14 @@ alias testsubimg='ros2 run image_tools showimage'
       }
     }
     ```
-2. ~/.config.Code/User/settings.json
+2. ~/.config/Code/User/settings.json
     ```json
     {
       "cmake.configureOnOpen": false,
       "editor.minimap.enabled": false,
       "editor.mouseWheelZoom": true,
       "editor.renderControlCharacters": true,
-      "editor.rulers": [120],
+      "editor.rulers": [100],
       "editor.tabSize": 2,
       "files.associations": {
         "*.repos": "yaml",
@@ -352,7 +352,7 @@ ros2 run image_tools cam2image --ros-args -p burger_mode:=true
 ## Time API 사용
 ```bash
 # colcon build
-colcon build --symlink-install 
+colcon build --symlink-install
 
 # 처음에 실행 필수
 source install/setup.bash
