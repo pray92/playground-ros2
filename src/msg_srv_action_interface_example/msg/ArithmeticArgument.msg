@@ -1,4 +1,4 @@
 # Messages
 builtin_interfaces/Time stamp
-float32 arguemnt_a
-float32 arguemnt_b
+float32 argument_a
+float32 argument_b
