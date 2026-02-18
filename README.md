@@ -177,6 +177,14 @@ alias testpub='ros2 run demo_nodes_cpp talker'
 alias testsub='ros2 run demo_nodes_cpp listener'
 alias testpubimg='ros2 run image_tools cam2image'
 alias testsubimg='ros2 run image_tools showimage'
+
+# 빌드 전에 실행해야 하는 Overlay & Underlay
+source /opt/ros/foxy/setup.bash
+source ~/ros2_workspace/install/local_setup.bash
+
+# colcon & vctool autocomplete
+source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+source /usr/share/vcstool-completion/vcs.bash
 ```
 
 ### 8. VSCode 개발환경 설정

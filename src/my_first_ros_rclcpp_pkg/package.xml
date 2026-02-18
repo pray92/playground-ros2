@@ -2,10 +2,10 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>my_first_ros_rclcpp_pkg</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="redgem92@gmail.com">root</maintainer>
-  <license>TODO: License declaration</license>
+  <version>0.6.0</version>
+  <description>ROS2 rclcpp basic package for the ROS 2 seminar</description>
+  <maintainer email="redgem92@gmail.com">Jisu</maintainer>
+  <license>Apache License 2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
