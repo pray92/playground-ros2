@@ -1,13 +1,17 @@
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import QoSProfile
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDurabilityPolicy
 from std_msgs.msg import String
 
 class HelloworldSubscriber(Node):
 
   def __init__(self):
     super().__init__('Helloworld_subscriber')
-    qos_profile = QoSProfile(depth=10)
+    qos_profile = QoSProfile(
+      reliability=QoSReliabilityPolicy.RELIABLE,
+      history=QoSHistoryPolicy.KEEP_LAST,
+      depth=10,
+      durability=QoSDurabilityPolicy.VOLATILE)
     self.helloworld_subscriber = self.create_subscription(
       String,
       'helloworld',

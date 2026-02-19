@@ -1,13 +1,17 @@
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import QoSProfile
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDurabilityPolicy
 from std_msgs.msg import String
 
 class HelloworldPublisher(Node):
 
   def __init__(self):
     super().__init__('helloworld_publihser')
-    qos_profile = QoSProfile(depth=10)
+    qos_profile = QoSProfile(
+      reliability=QoSReliabilityPolicy.RELIABLE,
+      history=QoSHistoryPolicy.KEEP_LAST,
+      depth=10,
+      durability=QoSDurabilityPolicy.TRANSIENT_LOCAL)
     self.helloworld_publisher = self.create_publisher(String, 'helloworld', qos_profile)
     self.timer = self.create_timer(1, self.publish_helloworld_msg)
     self.count = 0
