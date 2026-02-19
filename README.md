@@ -22,6 +22,7 @@ xhost +
 docker run -it \
   --name ros2_foxy_m4 \
   --platform linux/arm64 \
+  --cap-add=NET_ADMIN \
   -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
   -v ~/.Xauthority:/root/.Xauthority:rw \
   -v $(pwd):/root/ros2_workspace \
@@ -91,7 +92,8 @@ python3-pytest-cov \
 python3-rosdep \
 python3-setuptools \
 python3-vcstool \
-wget
+wget \
+iproute2
 
 python3 -m pip install -U \
 argcomplete \
