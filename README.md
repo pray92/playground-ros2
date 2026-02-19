@@ -93,7 +93,8 @@ python3-rosdep \
 python3-setuptools \
 python3-vcstool \
 wget \
-iproute2
+iproute2 \
+tree
 
 python3 -m pip install -U \
 argcomplete \
@@ -153,6 +154,11 @@ export RCUTILS_CONSOLE_OUTPUT_FORMAT='[{severity}]: {message}'
 export RCUTILS_COLORIZED_OUTPUT=1
 export RCUTILS_LOGGING_USE_STDOUT=0
 export RCUTILS_LOGGING_BUFFERED_STREAM=0
+
+# Security ROS
+export ROS_SECURITY_KEYSTORE=~/ros2_workspace/key_box
+export ROS_SECURITY_ENABLE=true
+export ROS_SECURITY_STRATEGY=Enforce
 
 alias cw='cd ~/ros2_workspace'
 alias cs='cd ~/ros2_workspace/src'
@@ -378,4 +384,51 @@ ros2 run time_rclpy_example time_example --ros-args -p use_sim_time:=False
 ```bash
 # 기생성한 *.ui
 qtcreator ~/ros2_workspace/src/my_first_rqt_plugin_pkg/resource/my_first_rqt_plugin_pkg.ui
+```
+
+## Security ROS 2
+```bash
+# 암호키 등의 보안 설정을 보관하는 폴더 생성
+cw
+ros2 security create_keystore key_box
+
+# 암호키 및 인증서 생성
+cw
+ros2 security create_key key_box /talker_listener/talker
+ros2 security create_key key_box /talker_listener/listener
+
+# 결과
+.
+├── enclaves
+│   ├── governance.p7s
+│   ├── governance.xml
+│   └── talker_listener
+│       ├── listener
+│       │   ├── cert.pem
+│       │   ├── governance.p7s -> ../../governance.p7s
+│       │   ├── identity_ca.cert.pem -> ../../../public/identity_ca.cert.pem
+│       │   ├── key.pem
+│       │   ├── permissions_ca.cert.pem -> ../../../public/permissions_ca.cert.pem
+│       │   ├── permissions.p7s
+│       │   └── permissions.xml
+│       └── talker
+│           ├── cert.pem
+│           ├── governance.p7s -> ../../governance.p7s
+│           ├── identity_ca.cert.pem -> ../../../public/identity_ca.cert.pem
+│           ├── key.pem
+│           ├── permissions_ca.cert.pem -> ../../../public/permissions_ca.cert.pem
+│           ├── permissions.p7s
+│           └── permissions.xml
+├── private
+│   ├── ca.key.pem
+│   ├── identity_ca.key.pem -> ca.key.pem
+│   └── permissions_ca.key.pem -> ca.key.pem
+└── public
+    ├── ca.cert.pem
+    ├── identity_ca.cert.pem -> ca.cert.pem
+    └── permissions_ca.cert.pem -> ca.cert.pem
+
+# 엑세스 제어 (예제에서 가져와야 함)
+ros2 security create_permission key_box /talker_listener/talker policies/sample.policy.xml
+ros2 security create_permission key_box /talker_listener/listener policies/sample.policy.xml
 ```
