@@ -1,0 +1,1 @@
+/root/ros2_workspace/src/build/my_first_rqt_plugin_pkg/ament_cmake_environment_hooks/pythonpath.sh

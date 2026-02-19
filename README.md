@@ -373,3 +373,9 @@ ros2 run time_rclcpp_example time_example --ros-args -p use_sim_time:=False
 # python
 ros2 run time_rclpy_example time_example --ros-args -p use_sim_time:=False
 ```
+
+## 커스팀 RQt 플러그인 실행
+```bash
+# 기생성한 *.ui
+qtcreator ~/ros2_workspace/src/my_first_rqt_plugin_pkg/resource/my_first_rqt_plugin_pkg.ui
+```

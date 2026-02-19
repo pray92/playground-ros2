@@ -1,0 +1,1 @@
+/root/ros2_workspace/build/my_first_rqt_plugin_pkg/ament_cmake_environment_hooks/local_setup.bash
