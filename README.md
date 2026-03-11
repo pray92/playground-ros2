@@ -25,7 +25,7 @@ docker run -it \
   --cap-add=NET_ADMIN \
   -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
   -v ~/.Xauthority:/root/.Xauthority:rw \
-  -v $(pwd):/root/ros2_workspace \
+  -v $(pwd):/root/ros2_workspace/robot_programming \
   ubuntu:20.04 \
   /bin/bash
 ```
@@ -132,12 +132,12 @@ vim ~/.bashrc
 
 # 추가
 source /opt/ros/foxy/setup.bash
-source ~/ros2_workspace/install/local_setup.bash
+source ~/ros2_workspace/robot_programming/install/local_setup.bash
 
 source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 source /usr/share/vcstool-completion/vcs.bash
 source /usr/share/colcon_cd/function/colcon_cd.sh
-export _colcon_cd_root=~/ros2_workspace
+export _colcon_cd_root=~/ros2_workspace/robot_programming
 
 export ROS_DOMAIN_ID=7
 export ROS_NAMESPACE=robot1
@@ -156,15 +156,15 @@ export RCUTILS_LOGGING_USE_STDOUT=0
 export RCUTILS_LOGGING_BUFFERED_STREAM=0
 
 # Security ROS
-export ROS_SECURITY_KEYSTORE=~/ros2_workspace/key_box
+export ROS_SECURITY_KEYSTORE=~/ros2_workspace/robot_programming/key_box
 export ROS_SECURITY_ENABLE=true
 export ROS_SECURITY_STRATEGY=Enforce
 
-alias cw='cd ~/ros2_workspace'
-alias cs='cd ~/ros2_workspace/src'
+alias cw='cd ~/ros2_workspace/robot_programming'
+alias cs='cd ~/ros2_workspace/robot_programming/src'
 alias ccd='colcon_cd'
 
-alias cb='cd ~/ros2_workspace && colcon build --symlink-install'
+alias cb='cd ~/ros2_workspace/robot_programming && colcon build --symlink-install'
 alias cbs='colcon build --symlink-install'
 alias cbp='colcon build --symlink-install --packages-select'
 alias cbu='colcon build --symlink-install --packages-up-to'
@@ -188,7 +188,7 @@ alias testsubimg='ros2 run image_tools showimage'
 
 # 빌드 전에 실행해야 하는 Overlay & Underlay
 source /opt/ros/foxy/setup.bash
-source ~/ros2_workspace/install/local_setup.bash
+source ~/ros2_workspace/robot_programming/install/local_setup.bash
 
 # colcon & vctool autocomplete
 source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
@@ -383,7 +383,7 @@ ros2 run time_rclpy_example time_example --ros-args -p use_sim_time:=False
 ## 커스팀 RQt 플러그인 실행
 ```bash
 # 기생성한 *.ui
-qtcreator ~/ros2_workspace/src/my_first_rqt_plugin_pkg/resource/my_first_rqt_plugin_pkg.ui
+qtcreator ~/ros2_workspace/robot_programming/src/my_first_rqt_plugin_pkg/resource/my_first_rqt_plugin_pkg.ui
 ```
 
 ## Security ROS 2
